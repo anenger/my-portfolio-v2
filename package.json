@@ -1,13 +1,15 @@
 {
   "name": "anenger-blog",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\""
+    "format": "prettier --write .",
+    "check": "tsc --noEmit && pnpm lint && pnpm format"
   },
   "dependencies": {
     "next": "16.1.1",
@@ -15,18 +17,18 @@
     "react-dom": "19.2.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
+    "@eslint/eslintrc": "^3.3.3",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/node": "^20.19.30",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
     "eslint-config-next": "16.1.1",
     "eslint-plugin-react-hooks": "^7.0.1",
-    "prettier": "^3.7.4",
+    "prettier": "^3.8.0",
     "prettier-plugin-classnames": "^0.8.6",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   }
 }

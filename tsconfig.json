@@ -1,18 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
+    // Base Options recommended for all projects
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "skipLibCheck": true,
+    "target": "es2022",
+    "allowJs": true,
     "resolveJsonModule": true,
+    "moduleDetection": "force",
     "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    // Enable strict type checking so you can catch bugs early
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    // We are not transpiling, so preserve our source code and do not emit files
+    "module": "preserve",
+    "noEmit": true,
     "jsx": "react-jsx",
-    "incremental": true,
+    // Include the DOM types
+    "lib": ["es2022", "dom", "dom.iterable"],
     "plugins": [
       {
         "name": "next"
@@ -20,10 +26,11 @@
     ],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "incremental": true
   },
+  // Include the necessary files for your project
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",

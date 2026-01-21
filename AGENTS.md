@@ -30,9 +30,9 @@ strategy (Jest, Vitest, Playwright, etc.).
 Example:
 
 ```typescript
-import * as React from 'react';
-import { Card } from './Card';
-import { MasonryLayout } from '@/components/MasonryLayout';
+import * as React from "react";
+import { Card } from "./Card";
+import { MasonryLayout } from "@/components/MasonryLayout";
 ```
 
 ### Formatting (Prettier)
@@ -58,13 +58,13 @@ Example:
 
 ```typescript
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  size?: '1x1' | '1x2' | '2x1' | '2x2';
+  size?: "1x1" | "1x2" | "2x1" | "2x2";
   className?: string;
 }
 
 export const Card = ({
-  size = '1x1',
-  className = '',
+  size = "1x1",
+  className = "",
   children,
   ...props
 }: React.PropsWithChildren<CardProps>) => {
@@ -96,13 +96,13 @@ Example:
 
 ```typescript
 const sizeClasses: Record<string, string> = {
-  small: 'col-span-1 row-span-1',
-  medium: 'col-span-2 row-span-2',
+  small: "col-span-1 row-span-1",
+  medium: "col-span-2 row-span-2",
 };
 
 export const Card = ({
-  size = 'small',
-  className = '',
+  size = "small",
+  className = "",
   children,
   ...props
 }: CardProps) => {
