@@ -1,0 +1,43 @@
+---
+title: Rebuilding my site
+description: Moving from Gatsby to Next.js, and finally adding a blog.
+date: 2026-09-26
+---
+
+My [old site](https://github.com/anenger/my-portfolio) was built with Gatsby back when I wanted an excuse to really learn
+HTML, CSS, and JavaScript. It did its job, but I always meant to turn it into a
+blog and never got around to it.
+
+This version is intentionally smaller:
+
+- **Next.js** with the App Router, statically generated
+- **MDX** for posts, so I can drop components into writing when I need them
+- **Tailwind CSS** with a muted palette, dark by default
+
+## Writing a post
+
+Each post is a single `.mdx` file in `src/content/posts` with a bit of
+frontmatter at the top:
+
+```mdx title="src/content/posts/hello.mdx"
+---
+title: Hello
+description: A short summary for the index and RSS feed.
+date: 2026-09-26
+draft: true
+---
+
+Post content goes here.
+```
+
+Code blocks are highlighted at build time, so there's no client-side cost:
+
+```ts {3}
+export const getPosts = async () => {
+  const slugs = await getSlugs();
+  const posts = await Promise.all(slugs.map(getPost));
+  return posts.sort(byDateDescending);
+};
+```
+
+More soon.
