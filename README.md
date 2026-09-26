@@ -11,6 +11,12 @@ pnpm build    # production build
 pnpm lint
 ```
 
+## Deployment
+
+Hosted on Vercel. The project uses pnpm 12 (pinned via `packageManager`), so
+the Vercel project needs the environment variable
+`ENABLE_EXPERIMENTAL_COREPACK=1`; otherwise Vercel falls back to pnpm 10.
+
 ## Content
 
 - **Profile, experience, projects, education**: `src/data/site.ts`
