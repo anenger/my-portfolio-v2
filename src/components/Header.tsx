@@ -11,16 +11,13 @@ export const Header = () => {
       <Link href="/" className="text-foreground font-medium tracking-tight">
         {site.name}
       </Link>
-      <nav className="flex items-center gap-4 text-sm sm:gap-5">
+      <nav className="flex items-center gap-5 text-sm">
         <Link href="/blog" className={navLinkClass}>
           Blog
         </Link>
         <Link href="/random" className={navLinkClass}>
           Random
         </Link>
-        <a href="/resume.pdf" className={navLinkClass}>
-          Resume
-        </a>
         <ThemeToggle />
       </nav>
     </header>
