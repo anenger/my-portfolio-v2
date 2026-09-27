@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { EndMark, ReadingProgress } from "@/components";
+import { EndMark } from "@/components/EndMark";
+import { ReadingProgress } from "@/components/ReadingProgress";
 import { formatDate, getPost, getPosts } from "@/lib/posts";
 
 interface PostPageProps {

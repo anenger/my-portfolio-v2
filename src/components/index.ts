@@ -1,9 +1,0 @@
-export { Header } from "./Header";
-export { Footer } from "./Footer";
-export { Section } from "./Section";
-export { PostList } from "./PostList";
-export { PhotoGallery } from "./PhotoGallery";
-export { EndMark } from "./EndMark";
-export { ReadingProgress } from "./ReadingProgress";
-export { Typewriter } from "./Typewriter";
-export { ThemeToggle } from "./ThemeToggle";

@@ -20,58 +20,53 @@ export const socialLinks: SocialLink[] = [
   { label: "Resume", href: "/resume.pdf" },
 ];
 
+export interface Logo {
+  src: string;
+  /** Dark-on-transparent logos that need flipping to stay visible in dark mode. */
+  invertInDark?: boolean;
+}
+
 export interface Role {
   company: string;
+  logo: Logo;
   url?: string;
   title: string;
   range: string;
   location: string;
-  highlights: string[];
 }
 
 export const experience: Role[] = [
   {
     company: "CLEAR",
+    logo: { src: "/logos/clear.png", invertInDark: true },
     url: "https://www.clearme.com/",
     title: "Software Engineer II",
     range: "Apr 2025 – Present",
     location: "New York, NY",
-    highlights: [
-      "Built the EGate member verification frontend on top of CLEAR and TSA APIs, rolled out to 30+ airports. Lane-to-TSA time dropped from 2–3 minutes to 20–30 seconds.",
-      "Shipped EnVe features that recovered $200K+ from churned customers, with Datadog monitoring for rollouts.",
-      "Re-architected GitHub Actions CI/CD, halving execution time per run.",
-      "Automated LaunchDarkly feature flag cleanup with Claude Code workflows.",
-    ],
   },
   {
     company: "Microsoft",
+    logo: { src: "/logos/microsoft.png" },
     url: "https://loop.cloud.microsoft/",
     title: "Software Engineer",
     range: "Aug 2022 – Apr 2025",
     location: "Redmond, WA",
-    highlights: [
-      "Integrated Microsoft Loop pages into Copilot Chat, increasing average session duration by 10+ minutes.",
-      "Migrated the Loop frontend to Fluent UI v9, reducing rendering errors and improving UI performance.",
-      "Built Substrate APIs to expand sharing of Loop components across Microsoft 365.",
-    ],
   },
   {
     company: "Wellframe",
+    logo: { src: "/logos/wellframe.png" },
+    url: "https://www.wellframe.com/",
     title: "Software Development QA Co-op",
     range: "Feb 2021 – Jun 2021",
     location: "Boston, MA",
-    highlights: [
-      "Built end-to-end test suites in Java with Selenium WebDriver, plus Python/MySQL pipelines seeding mock healthcare data into CI.",
-    ],
   },
   {
     company: "TripAdvisor",
+    logo: { src: "/logos/tripadvisor.png" },
+    url: "https://www.tripadvisor.com/",
     title: "IT Operations Engineer Co-op",
     range: "Jan 2020 – Jun 2020",
     location: "Needham, MA",
-    highlights: [
-      "Wrote automation scripts to streamline IT service management.",
-    ],
   },
 ];
 
@@ -111,6 +106,8 @@ export const projects: Project[] = [
 
 export interface School {
   name: string;
+  logo: Logo;
+  url?: string;
   degree: string;
   range: string;
   details: string;
@@ -119,6 +116,8 @@ export interface School {
 export const education: School[] = [
   {
     name: "Northeastern University",
+    logo: { src: "/logos/northeastern.png" },
+    url: "https://www.northeastern.edu/",
     degree: "B.S. Computer Science, cum laude",
     range: "2018 – 2022",
     details: "6x Dean's List, Dean's Scholarship.",

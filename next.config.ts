@@ -3,6 +3,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
+  images: {
+    // Photos are never replaced in place (new photo = new filename), so cache
+    // optimized variants for 31 days instead of re-generating every 4 hours.
+    minimumCacheTTL: 2678400,
+  },
 };
 
 // Plugins are referenced by name so the config stays serializable for Turbopack.

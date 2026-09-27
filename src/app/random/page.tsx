@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-import { PhotoGallery, Section } from "@/components";
+import { PhotoGallery } from "@/components/PhotoGallery";
+import { Section } from "@/components/Section";
 import { getPhotos } from "@/lib/photos";
 
 export const metadata: Metadata = {

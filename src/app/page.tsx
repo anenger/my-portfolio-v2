@@ -1,6 +1,9 @@
 import Link from "next/link";
 
-import { PostList, Section, Typewriter } from "@/components";
+import { LogoMark } from "@/components/LogoMark";
+import { PostList } from "@/components/PostList";
+import { Section } from "@/components/Section";
+import { Typewriter } from "@/components/Typewriter";
 import { education, experience, projects, socialLinks } from "@/data/site";
 import { getPosts } from "@/lib/posts";
 
@@ -67,12 +70,16 @@ export default async function Home() {
       </Section>
 
       <Section title="Experience">
-        <ol className="flex flex-col gap-10">
+        <ol className="flex flex-col gap-5">
           {experience.map((role) => (
-            <li key={`${role.company}-${role.title}`}>
+            <li
+              key={`${role.company}-${role.title}`}
+              className="flex items-start gap-3"
+            >
+              <LogoMark logo={role.logo} className="mt-0.5" />
               <div
-                className="flex flex-col gap-1 sm:flex-row sm:items-baseline
-                  sm:justify-between"
+                className="flex flex-1 flex-col gap-1 sm:flex-row
+                  sm:items-baseline sm:justify-between"
               >
                 <h3 className="text-foreground font-medium">
                   {role.url ? (
@@ -94,19 +101,6 @@ export default async function Home() {
                   {role.range}
                 </span>
               </div>
-              <ul
-                className="text-muted mt-3 flex flex-col gap-2 text-sm
-                  leading-relaxed"
-              >
-                {role.highlights.map((highlight) => (
-                  <li key={highlight} className="flex gap-3">
-                    <span aria-hidden="true" className="text-subtle">
-                      –
-                    </span>
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
             </li>
           ))}
         </ol>
@@ -115,22 +109,37 @@ export default async function Home() {
       <Section title="Education">
         <ul className="flex flex-col gap-6">
           {education.map((school) => (
-            <li key={school.name}>
-              <div className="flex items-baseline justify-between gap-4">
-                <h3 className="text-foreground font-medium">
-                  {school.name}
-                  <span className="text-muted font-normal">
-                    {" "}
-                    · {school.degree}
+            <li key={school.name} className="flex items-start gap-3">
+              <LogoMark logo={school.logo} className="mt-0.5" />
+              <div className="flex-1">
+                <div
+                  className="flex flex-col gap-1 sm:flex-row sm:items-baseline
+                    sm:justify-between"
+                >
+                  <h3 className="text-foreground font-medium">
+                    {school.url ? (
+                      <a
+                        href={school.url}
+                        className="hover:text-accent transition-colors"
+                      >
+                        {school.name}
+                      </a>
+                    ) : (
+                      school.name
+                    )}
+                    <span className="text-muted font-normal">
+                      {" "}
+                      · {school.degree}
+                    </span>
+                  </h3>
+                  <span className="text-subtle shrink-0 font-mono text-xs">
+                    {school.range}
                   </span>
-                </h3>
-                <span className="text-subtle shrink-0 font-mono text-xs">
-                  {school.range}
-                </span>
+                </div>
+                <p className="text-muted mt-2 text-sm leading-relaxed">
+                  {school.details}
+                </p>
               </div>
-              <p className="text-muted mt-2 text-sm leading-relaxed">
-                {school.details}
-              </p>
             </li>
           ))}
         </ul>
