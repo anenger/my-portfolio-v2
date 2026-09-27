@@ -16,8 +16,8 @@ export const LogoMark = ({ logo, className = "" }: LogoMarkProps) => {
       width={20}
       height={20}
       decoding="async"
-      className={`size-5 shrink-0 rounded-sm opacity-80 grayscale
-        dark:opacity-60 ${logo.invertInDark ? "dark:invert" : ""} ${className}`}
+      className={`size-5 shrink-0 rounded-sm
+        ${logo.tileInDark ? "dark:bg-white dark:p-0.5" : ""} ${className}`}
     />
   );
 };

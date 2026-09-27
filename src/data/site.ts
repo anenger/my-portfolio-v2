@@ -22,8 +22,8 @@ export const socialLinks: SocialLink[] = [
 
 export interface Logo {
   src: string;
-  /** Dark-on-transparent logos that need flipping to stay visible in dark mode. */
-  invertInDark?: boolean;
+  /** Dark-on-transparent logos that need a light tile to stay visible in dark mode. */
+  tileInDark?: boolean;
 }
 
 export interface Role {
@@ -38,7 +38,7 @@ export interface Role {
 export const experience: Role[] = [
   {
     company: "CLEAR",
-    logo: { src: "/logos/clear.png", invertInDark: true },
+    logo: { src: "/logos/clear.png", tileInDark: true },
     url: "https://www.clearme.com/",
     title: "Software Engineer II",
     range: "Apr 2025 – Present",
