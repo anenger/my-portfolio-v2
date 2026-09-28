@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
     // optimized variants for 31 days instead of re-generating every 4 hours.
     minimumCacheTTL: 2678400,
   },
+  async redirects() {
+    return [{ source: "/random", destination: "/photos", permanent: true }];
+  },
 };
 
 // Plugins are referenced by name so the config stays serializable for Turbopack.
