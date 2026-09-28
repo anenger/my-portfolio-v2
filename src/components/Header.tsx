@@ -1,26 +1,43 @@
-import Link from "next/link";
-
 import { site } from "@/data/site";
+import { NavLink } from "./NavLink";
 import { ThemeToggle } from "./ThemeToggle";
 
-const navLinkClass = "text-muted hover:text-foreground transition-colors";
+const navLinkClass = "transition-colors";
+const inactiveClass = "text-muted hover:text-foreground";
+
+// The current page keeps the site-wide wavy accent underline that other links
+// only show on hover.
+const activeClass =
+  "text-foreground underline decoration-accent decoration-wavy";
+
+const navItems = [
+  { href: "/blog", label: "Blog" },
+  { href: "/photos", label: "Photos" },
+  { href: "/bookmarks", label: "Bookmarks" },
+];
 
 export const Header = () => {
   return (
     <header className="flex items-center justify-between py-8">
-      <Link href="/" className="text-foreground font-medium tracking-tight">
+      <NavLink
+        href="/"
+        className="text-foreground font-medium tracking-tight"
+        activeClassName={activeClass}
+      >
         {site.name}
-      </Link>
+      </NavLink>
       <nav className="flex items-center gap-3 text-sm sm:gap-5">
-        <Link href="/blog" className={navLinkClass}>
-          Blog
-        </Link>
-        <Link href="/photos" className={navLinkClass}>
-          Photos
-        </Link>
-        <Link href="/bookmarks" className={navLinkClass}>
-          Bookmarks
-        </Link>
+        {navItems.map((item) => (
+          <NavLink
+            key={item.href}
+            href={item.href}
+            className={navLinkClass}
+            inactiveClassName={inactiveClass}
+            activeClassName={activeClass}
+          >
+            {item.label}
+          </NavLink>
+        ))}
         <ThemeToggle />
       </nav>
     </header>
